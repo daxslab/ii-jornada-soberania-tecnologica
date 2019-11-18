@@ -1,23 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
 
-import { ListPage } from './list.page';
+import { IonicModule } from '@ionic/angular';
+
+import { EventProtocolPageRoutingModule } from './event-protocol-routing.module';
+
+import { EventProtocolPage } from './event-protocol.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RouterModule.forChild([
-      {
-        path: '',
-        component: ListPage
-      }
-    ])
+    EventProtocolPageRoutingModule
   ],
-  declarations: [ListPage]
+  declarations: [EventProtocolPage]
 })
-export class ListPageModule {}
+export class EventProtocolPageModule {}
