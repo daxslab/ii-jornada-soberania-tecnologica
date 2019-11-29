@@ -1,5 +1,7 @@
 {
   "name": "ii-jornada-soberania-tecnologica",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
