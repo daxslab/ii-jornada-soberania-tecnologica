@@ -12,7 +12,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 export class AppComponent {
   public appPages = [
     {
-      title: 'II Jornada de Soberanía Tecnológica',
+      title: 'Convocatoria',
       url: '/home',
       icon: 'home'
     },
@@ -32,7 +32,7 @@ export class AppComponent {
       icon: 'calendar'
     },
     {
-      title: 'Patrocinadores',
+      title: 'Colaboradores',
       url: '/sponsors',
       icon: 'ribbon'
     },

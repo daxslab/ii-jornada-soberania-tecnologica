@@ -1,4 +1,10 @@
-ion-item a{
+.contacts a{
   text-decoration: none;
-
+  font-size: 2em;
 }
+
+.contacts > ion-row:first-child > ion-col{
+  padding: 0 10%;
+  margin: 1em 0;
+}
+
