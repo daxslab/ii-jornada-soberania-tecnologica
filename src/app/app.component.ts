@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, HostListener} from '@angular/core';
 
-import { Platform } from '@ionic/angular';
+import {MenuController, ModalController, Platform} from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -46,9 +47,40 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private router: Router,
+    public modalCtrl: ModalController,
+    private menu: MenuController
   ) {
     this.initializeApp();
+    this.platform.backButton.subscribe(async () => {
+
+      // close modal
+      try {
+        const element = await this.modalCtrl.getTop();
+        if (element) {
+          element.dismiss();
+          return;
+        }
+      } catch (error) {}
+
+      // // close side menu
+      // try {
+      //   const element = await this.menu.getOpen();
+      //   if (element !== null && element.isOpen()) {
+      //     this.menu.close();
+      //     return;
+      //   }
+      // } catch (error) {}
+
+      if (window.location.pathname === '/home') {
+        // exit app
+        navigator['app'].exitApp();
+      } else {
+        // navigate to home
+        this.router.navigateByUrl('/home');
+      }
+    });
   }
 
   initializeApp() {
@@ -57,4 +89,5 @@ export class AppComponent {
       this.splashScreen.hide();
     });
   }
+
 }

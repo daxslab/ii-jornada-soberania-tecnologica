@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ProgramService} from '../api/program.service';
+import {ModalController} from '@ionic/angular';
+import {AbstractModalPage} from '../abstract-modal/abstract-modal.page';
 
 @Component({
   selector: 'app-list',
@@ -6,34 +9,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['program.page.scss']
 })
 export class ProgramPage implements OnInit {
-  private selectedItem: any;
-  private icons = [
-    'flask',
-    'wifi',
-    'beer',
-    'football',
-    'basketball',
-    'paper-plane',
-    'american-football',
-    'boat',
-    'bluetooth',
-    'build'
-  ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+  public program = null;
+  searchTerm: string;
+  constructor(private programService: ProgramService, public modalController: ModalController) {
   }
 
   ngOnInit() {
+    this.programService.getProgram().subscribe(result => {
+      this.program = result;
+    });
   }
-  // add back when alpha.4 is out
-  // navigate(item) {
-  //   this.router.navigate(['/list', JSON.stringify(item)]);
-  // }
+
+  setFilteredItems() {
+    this.program = this.programService.filterProgram(this.searchTerm);
+  }
+
+  async openModal(conference) {
+    const modal = await this.modalController.create({
+      component: AbstractModalPage,
+      componentProps: conference
+    });
+
+    modal.onDidDismiss().then((dataReturned) => {
+      if (dataReturned !== null) {
+        // this.dataReturned = dataReturned.data;
+        // alert('Modal Sent Data :'+ dataReturned);
+      }
+    });
+
+    return await modal.present();
+  }
+
 }

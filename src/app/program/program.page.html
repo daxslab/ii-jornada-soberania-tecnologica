@@ -9,18 +9,43 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-searchbar
+        [(ngModel)]="searchTerm"
+        (ionChange)="setFilteredItems()"
+        placeholder="Buscar"
+></ion-searchbar>
+
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let item of items">
-      <ion-icon [name]="item.icon" slot="start"></ion-icon>
-      {{item.title}}
-      <div class="item-note" slot="end">
-        {{item.note}}
-      </div>
-    </ion-item>
+
+    <ion-list>
+
+        <ion-card *ngFor="let conference of program">
+            <ion-card-header>
+                <ion-card-subtitle>{{conference.place}}</ion-card-subtitle>
+                <ion-card-title>{{conference.name}}</ion-card-title>
+            </ion-card-header>
+
+            <ion-item *ngIf="conference.responsible">
+                <ion-icon name="person" slot="start"></ion-icon>
+                <ion-label>{{conference.responsible}}</ion-label>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name="calendar" slot="start"></ion-icon>
+                <ion-label>Día {{conference.day}}</ion-label>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name="time" slot="start"></ion-icon>
+                <ion-label>{{conference.time}}</ion-label>
+            </ion-item>
+
+            <ion-item *ngIf="conference.description" (click)="openModal(conference)">
+                <ion-icon name="paper" slot="start"></ion-icon>
+                <ion-label>Ver mas...</ion-label>
+            </ion-item>
+        </ion-card>
+
   </ion-list>
-    <div *ngIf="selectedItem" padding>
-      You navigated here from <b>{{selectedItem.title }}</b>
-    </div>
   <img src="/assets/rancholuna.jpg" alt="Playa de Rancho Luna"/>
 </ion-content>
