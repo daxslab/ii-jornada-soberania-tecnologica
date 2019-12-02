@@ -1,9 +1,11 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>{{conference.name}}</ion-title>
-    <ion-button slot="end" color="light" (click)="closeModal()">
-      <ion-icon name="md-close"></ion-icon>
-    </ion-button>
+    <ion-buttons slot="primary">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="md-close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 

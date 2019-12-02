@@ -20,7 +20,7 @@ export class ProgramPage implements OnInit {
     });
   }
 
-  setFilteredItems() {
+  async setFilteredItems() {
     this.program = this.programService.filterProgram(this.searchTerm);
   }
 

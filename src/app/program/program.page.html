@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -13,9 +13,12 @@
         [(ngModel)]="searchTerm"
         (ionChange)="setFilteredItems()"
         placeholder="Buscar"
+        debounce="450"
 ></ion-searchbar>
 
 <ion-content>
+
+    <ion-spinner name="dots" *ngIf="!program"></ion-spinner>
 
     <ion-list>
 
@@ -40,12 +43,11 @@
                 <ion-label>{{conference.time}}</ion-label>
             </ion-item>
 
-            <ion-item *ngIf="conference.description" (click)="openModal(conference)">
+            <ion-item *ngIf="conference.description" button="true" (click)="openModal(conference)">
                 <ion-icon name="paper" slot="start"></ion-icon>
                 <ion-label>Ver mas...</ion-label>
             </ion-item>
         </ion-card>
 
   </ion-list>
-  <img src="/assets/rancholuna.jpg" alt="Playa de Rancho Luna"/>
 </ion-content>
