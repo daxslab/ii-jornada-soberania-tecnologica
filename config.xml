@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.daxslab.jornadasoberania.ii" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.daxslab.jornadasoberania.ii" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>II Jornada de Soberanía Tecnológica</name>
     <description>La Unión de Informáticos de Cuba (UIC) convoca a la II Jornada Nacional de Soberanía Tecnológica desde la UIC, a celebrarse los días 5 y 6 de diciembre de 2019 en la provincia de Cienfuegos, Cuba.</description>
     <author email="info@daxslab.com" href="http://www.daxslab.com/">Daxslab</author>
-    <content original-src="index.html" src="http://localhost:8102" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -99,5 +99,4 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-ionic-webview" spec="^4.0.0" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
-    <allow-navigation href="http://localhost:8102" sessionid="b1714a4d" />
 </widget>
