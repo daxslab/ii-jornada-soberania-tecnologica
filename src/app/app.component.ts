@@ -43,6 +43,7 @@ export class AppComponent {
       icon: 'alert'
     }
   ];
+  private lastRoute = null;
 
   constructor(
     private platform: Platform,
@@ -54,6 +55,8 @@ export class AppComponent {
   ) {
     this.initializeApp();
     this.platform.backButton.subscribe(async () => {
+
+      this.lastRoute = window.location.pathname;
 
       // close modal
       try {
@@ -73,12 +76,11 @@ export class AppComponent {
       //   }
       // } catch (error) {}
 
-      if (window.location.pathname === '/home') {
+      if (this.lastRoute === '/home') {
         // exit app
         navigator['app'].exitApp();
       } else {
-        // navigate to home
-        this.router.navigateByUrl('/home');
+        this.router.navigate(['/home']);
       }
     });
   }
