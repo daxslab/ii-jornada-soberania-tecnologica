@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { AbstractModalPageRoutingModule } from './abstract-modal-routing.module';
 
 import { AbstractModalPage } from './abstract-modal.page';
+import {ProgramPageModule} from '../program/program.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AbstractModalPageRoutingModule
+    AbstractModalPageRoutingModule,
+    ProgramPageModule
   ],
   declarations: [AbstractModalPage]
 })

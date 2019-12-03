@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 
 import { ProgramPage } from './program.page';
+import {VoteLinksComponent} from '../vote-links/vote-links.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,9 @@ import { ProgramPage } from './program.page';
       }
     ])
   ],
-  declarations: [ProgramPage]
+  exports: [
+    VoteLinksComponent
+  ],
+  declarations: [ProgramPage, VoteLinksComponent]
 })
 export class ProgramPageModule {}

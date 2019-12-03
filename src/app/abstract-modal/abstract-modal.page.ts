@@ -18,8 +18,6 @@ export class AbstractModalPage implements OnInit {
   ) { }
 
   ngOnInit() {
-
-    console.table(this.navParams);
     this.conference = this.navParams.data;
   }
 
