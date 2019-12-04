@@ -1,20 +1,20 @@
-//// Ionic Variables and Theming. For more info, please see:
-//// http://ionicframework.com/docs/theming/
-//
-///** Ionic CSS Variables **/
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/theming/
+
+/** Ionic CSS Variables **/
 :root {
-  --ion-color-primary: #db3232;
-  --ion-color-primary-rgb: 219, 50, 50;
+  --ion-color-primary: #8e44ad;
+  --ion-color-primary-rgb: 142, 68, 173;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255, 255, 255;
-  --ion-color-primary-shade: #c12c2c;
-  --ion-color-primary-tint: #df4747;
-  --ion-color-secondary: #8e44ad;
-  --ion-color-secondary-rgb: 142, 68, 173;
+  --ion-color-primary-shade: #7d3c98;
+  --ion-color-primary-tint: #9957b5;
+  --ion-color-secondary: #db3232;
+  --ion-color-secondary-rgb: 219, 50, 50;
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255, 255, 255;
-  --ion-color-secondary-shade: #7d3c98;
-  --ion-color-secondary-tint: #9957b5;
+  --ion-color-secondary-shade: #c12c2c;
+  --ion-color-secondary-tint: #df4747;
   --ion-color-tertiary: #7044ff;
   --ion-color-tertiary-rgb: 112, 68, 255;
   --ion-color-tertiary-contrast: #ffffff;
@@ -58,3 +58,4 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 }
+
